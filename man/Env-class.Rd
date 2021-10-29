@@ -3,16 +3,21 @@
 \docType{class}
 \name{Env-class}
 \alias{Env-class}
-\title{Env class yet to be implemented}
+\title{Env-instruction class yet to be implemented}
 \value{
-the object
+object of class Env
 }
 \description{
-Env class yet to be implemented
+Env-instruction class yet to be implemented
 }
-\examples{
-#no example yet
-}
+\section{Slots}{
+
+\describe{
+\item{\code{key}}{character.}
+
+\item{\code{value}}{character.}
+}}
+
 \seealso{
 Other instruction classes: 
 \code{\link{Add-class}},
@@ -34,5 +39,9 @@ Other instruction classes:
 \code{\link{Stopsignal-class}},
 \code{\link{Volume-class}},
 \code{\link{Workdir-class}}
+
+Other Env instruction: 
+\code{\link{Env}}
 }
+\concept{Env instruction}
 \concept{instruction classes}

@@ -1,30 +1,61 @@
 # Copyright 2018 Opening Reproducible Research (https://o2r.info)
 
-#' Env class yet to be implemented
+#' Env-instruction class yet to be implemented
 #' @include Class-Instruction.R
 #'
-#' See official documentation at \url{https://docs.docker.com/engine/reference/builder/#env}.
+#' See official documentation at \url{https://docs.docker.com/engine/reference/builder/#arg}.
 #'
-#' @return the object
+#' @slot key character.
+#' @slot value character.
 #' @family instruction classes
-#' @examples
-#' #no example yet
-setClass("Env", contains = "Instruction")
+#' @family Env instruction
+#' @return object of class Env
+#' @export
+setClass("Env",
+         slots = list(key = "character",
+                      value = "character"), contains = "Instruction")
 
-#' Constructor for Env yet to be implemented
+#' Create objects representing a ENV instruction
 #'
-#' @param ... fields yet to be implemented
-#'
-#' @return the object
-#' @examples
-#' #no example yet
-Env <- function(...) {
-  stop("Constructor not yet implemented for this class.")
+#' @param key character argument naming the argument
+#' @param value default value for the argument, of class character
+#' @family Env instruction
+#' @return An S4 object of class Env
+#' @export
+Env <- function(key, value) {
+  methods::new("Env", key = key, value = value)
 }
 
 setMethod("docker_arguments",
           signature(obj = "Env"),
           function(obj) {
-            stop("The generic function docker_arguments is not implemented for class ",
-                 class(obj))
+            key <- methods::slot(obj, "key")
+            value <- methods::slot(obj, "value")
+            string <- ""
+            if (!is.na(key)) {
+              string <- paste0(string, key)
+              if (!is.na(value)) {
+                string <- paste0(string, "=")
+              }
+            }
+            if (!is.na(value)) {
+              string <- paste0(string, value)
+            }
+
+            return(string)
           })
+
+setValidity("Env",
+            method = function(object) {
+              key <- methods::slot(object, "key")
+              value <- methods::slot(object, "value")
+
+              if (is.na(key) || stringr::str_length(key) == 0) {
+                return(paste("key must be a non-empty string, given was: ", key))
+              } else if (is.na(value) || stringr::str_length(value) == 0) {
+                return("value must be a non-empty string, given was: ", value)
+              } else {
+                return(TRUE)
+              }
+            }
+)

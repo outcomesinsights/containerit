@@ -2,19 +2,23 @@
 % Please edit documentation in R/Class-Env.R
 \name{Env}
 \alias{Env}
-\title{Constructor for Env yet to be implemented}
+\title{Create objects representing a ENV instruction}
 \usage{
-Env(...)
+Env(key, value = NA_character_)
 }
 \arguments{
-\item{...}{fields yet to be implemented}
+\item{key}{character argument naming the argument}
+
+\item{value}{default value for the argument, of class character}
 }
 \value{
-the object
+An S4 object of class Env
 }
 \description{
-Constructor for Env yet to be implemented
+Create objects representing a ENV instruction
 }
-\examples{
-#no example yet
+\seealso{
+Other Env instruction: 
+\code{\link{Env-class}}
 }
+\concept{Env instruction}

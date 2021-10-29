@@ -5,14 +5,19 @@
 \alias{Arg-class}
 \title{Arg-instruction class yet to be implemented}
 \value{
-object
+object of class Arg
 }
 \description{
 Arg-instruction class yet to be implemented
 }
-\examples{
-#no example yet
-}
+\section{Slots}{
+
+\describe{
+\item{\code{key}}{character.}
+
+\item{\code{value}}{character.}
+}}
+
 \seealso{
 Other instruction classes: 
 \code{\link{Add-class}},
@@ -34,5 +39,9 @@ Other instruction classes:
 \code{\link{Stopsignal-class}},
 \code{\link{Volume-class}},
 \code{\link{Workdir-class}}
+
+Other Arg instruction: 
+\code{\link{Arg}}
 }
+\concept{Arg instruction}
 \concept{instruction classes}

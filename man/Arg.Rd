@@ -2,19 +2,23 @@
 % Please edit documentation in R/Class-Arg.R
 \name{Arg}
 \alias{Arg}
-\title{Arg constructor yet to be implemented}
+\title{Create objects representing a ARG instruction}
 \usage{
-Arg(...)
+Arg(key, value = NA_character_)
 }
 \arguments{
-\item{...}{fields yet to be implemented}
+\item{key}{character argument naming the argument}
+
+\item{value}{default value for the argument, of class character}
 }
 \value{
-the object
+An S4 object of class Arg
 }
 \description{
-Arg constructor yet to be implemented
+Create objects representing a ARG instruction
 }
-\examples{
-#no example yet
+\seealso{
+Other Arg instruction: 
+\code{\link{Arg-class}}
 }
+\concept{Arg instruction}
